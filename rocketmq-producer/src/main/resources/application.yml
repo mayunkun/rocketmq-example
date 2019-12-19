@@ -1,4 +1,4 @@
 rocketmq:
-  name-server: xx.xx.xx.xx:9876
+  name-server: 121.41.19.236:9876
   producer:
     group: my-group

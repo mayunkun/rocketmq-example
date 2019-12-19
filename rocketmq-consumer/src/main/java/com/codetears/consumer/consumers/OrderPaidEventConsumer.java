@@ -1,4 +1,4 @@
-package com.codetears.consumer;
+package com.codetears.consumer.consumers;
 
 import com.codetears.consumer.domain.OrderPaidEvent;
 import lombok.extern.slf4j.Slf4j;

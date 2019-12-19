@@ -2,6 +2,7 @@ package com.codetears.producer;
 
 import com.codetears.producer.domain.OrderPaidEvent;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
+import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -43,6 +44,11 @@ public class ProducerApplication implements CommandLineRunner {
         // send message with special tag
         rocketMqTemplate.convertAndSend("message-ext-topic:tag0", "I'm from tag0");
         rocketMqTemplate.convertAndSend("message-ext-topic:tag1", "I'm from tag1");
+
+        // delay message
+        Message message = new Message("string-topic", "this is a delay message".getBytes("UTF-8"));
+        message.setDelayTimeLevel(3);
+        defaultMQProducer.send(message);
     }
 
 }
