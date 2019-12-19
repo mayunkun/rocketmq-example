@@ -2,3 +2,4 @@ rocketmq:
   name-server: 121.41.19.236:9876
   producer:
     group: my-group
+    send-message-timeout: 30000
